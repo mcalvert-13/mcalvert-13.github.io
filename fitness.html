@@ -72,6 +72,8 @@
             padding: 10px 20px; /* Adjust padding as needed */
             color: darkblue;
             text-decoration: none;
+            border-radius: 10px; /* Make the image round */
+
         }
 
         .banner-links nav ul li a:hover {
@@ -121,3 +123,50 @@
     </p>
   </body>
 </html>
+
+
+
+
+
+
+
+/* EVEN SECTION: IMG */
+.column {
+    width: 30%; /* Adjust the width of columns as needed */
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.clearfix::after {  /* Clearfix to clear the float */
+    content: "";
+    display: table;
+    clear: both;
+}
+.column img {       /* Style for images */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+.column p {                     /* Style for paragraphs */
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+/* EVEN SECTION: TXT */
+.column {
+    width: 30%;             /* Adjust the width of columns as needed */
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.clearfix::after {      /* Clearfix to clear the float */
+    content: "";
+    display: table;
+    clear: both;
+}
+.column p {
+    font-size: 16px;    /* Style for paragraphs */
+    line-height: 1.6;
+    margin: 0;
+}
