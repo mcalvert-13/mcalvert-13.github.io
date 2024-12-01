@@ -4,119 +4,205 @@
     <meta charset="utf-8" />
     <title>Adventures</title>
     <style>
+        /* BODY STYLING */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        .home-button {
-            position: absolute;
-            top: 10px;              /* Positioning of button */
-            left: 10px;
-            padding: 3px;
+        /* HEADER STYLING */
+        h1 {
+            font-size: 40px; /* Sets the size of the header */
+            text-align: center; /* Centers the header text */
+            margin-top: 50px; /* Removes default margin */ 
+            margin-bottom: 50px; /* Adds space below the header if needed */
+
+        }
+        
+        h2 {
+            font-size: 30px; /* Sets the size of the header */
+            text-align: center; /* Centers the header text */
+            margin: 0; /* Removes default margin */
+            padding-top: 20px; 
+            padding-bottom: 20px; /* Adds space below the header if needed */
+        }
+
+        /* GUIDE BAR STYLING */
+        .guide-bar {
+            background-color: lightblue; /* Sets the background color of the guide bar */
+            display: flex; /* Enables Flexbox layout for children: logo and links */
+            align-items: center; /* Vertically centers the items in the guide bar */
+            padding: 10px 20px; /* Adds space inside the guide bar */
+        }
+
+        .guide-bar .logo {
+            font-size: 24px; /* Sets the size of the logo text */
+            font-weight: bold; /* Makes the text bold */
+            color: darkblue; /* Sets the link color */
+            text-decoration: none; /* Removes underline */
+            margin: 0; /* Removes default margin */
+            padding: 10px 15px; /* Adds padding to the link */
+            border-radius: 5px; /* Adds slight rounding to link corners */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .guide-bar .logo:hover {
+            background-color: darkblue; /* Changes background on hover */
+            color: white; /* Changes text color on hover */
+        }
+
+        .guide-bar .logo ul li a:hover {
+            background-color: darkblue; /* Changes background on hover */
+            color: white; /* Changes text color on hover */
+        }
+
+        .guide-bar .links {
+            margin-left: 20px; /* Adds space between the logo and the links */
+        }
+
+        .guide-bar .links ul {
+            list-style: none; /* Removes default bullet points from the list */
+            padding: 0; /* Removes extra padding from the list */
+            margin: 0; /* Removes default margin from the list */
+            display: flex; /* Lays out list items (links) in a row */
+            gap: 10px; /* Adds spacing between each link */
+        }
+
+        .guide-bar .links ul li a {
+            display: block; /* Makes each link behave like a block for padding to work */
+            padding: 10px 15px; /* Adds padding inside each link */
+            color: darkblue; /* Sets the link text color */
+            text-decoration: none; /* Removes the underline from the links */
+            border-radius: 5px; /* Adds slight rounding to link corners */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .guide-bar .links ul li a:hover {
+            background-color: darkblue; /* Changes background on hover */
+            color: white; /* Changes text color on hover */
+        }
+
+
+        /* SUBSECTION STYLING */
+        .subsection-1 {
             background-color: lightgray;
+            margin: 100px;
+            margin-top: 50px;
+            border-radius: 50px;
+        }
+
+        .subsection-2 {
+            background-color: rgb(138, 137, 137);
+            margin: 100px;
+            border-radius: 50px;
+        }
+
+
+
+
+        /* FORMAT-1 STYLING */
+        .format-1 {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            border-radius: 10px;
+            flex-direction: row;    /* Align image and text side by side */
         }
-        .home-button img {
-            width: 30px; /* Adjust width as needed */
+        .format-1 .image {
+            width: 50%;             /* Image Container takes up 30% width of the section */
+            display: flex;          /* Use flexbox */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;        /* Center vertically */
+            padding: 20px;
+
+        }
+        .format-1 .image img {
+            width: 90%;            /* Image takes up full width of its container */
             height: auto;
-            border-radius: 100%; /* Make the image round */
-            display: center;
+            border-radius: 50px;
         }
-
-        header h1{
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        /* Styling for the name banner */
-        .banner-title {
-            background-color: rgb(88, 194, 229);
-            padding: 10px 0; /* Adjust padding as needed */
-            text-align: center;
-            color: white;
-        }
-
-        /* Styling for the main banner */
-        .banner-links {
-            background-color: lightblue;
-            padding: 10px 0; /* Adjust padding as needed */
-            text-align: center;
-        }
-
-        /* Center-align the links within the banner */
-        .banner-links nav {
-            text-align: center;
-        }
-
-        /* Style for the links */
-        .banner-links nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: inline-block; /* Set the list to inline-block */
-        }
-
-        .banner-links nav ul li {
-            display: inline-block;
-        }
-
-        .banner-links nav ul li a {
-            display: block;
-            padding: 10px 20px; /* Adjust padding as needed */
-            color: darkblue;
-            text-decoration: none;
-            border-radius: 10px; /* Make the image round */
-
-        }
-
-        .banner-links nav ul li a:hover {
-            background-color: darkblue;
-            color: white;
-        }
-
-        header h2{
-            text-align: center;
-            /* Add margin before the h2 element */
-            margin-bottom: 20px; /* Example margin */
-        }
-        /* Apply margin to all sides of the paragraph */
-        p {
+        .format-1 .text {
+            width: 50%;             /* Text Container takes up 70% width of the section */
             text-align: left;
-            margin-left: 0.5in;
-            margin-right: 0.5in;
+            padding: 50px;
+            display: flex;          /* Use flexbox */
+            flex-direction: column;
+            align-items: center;    /* Center vertically */
+            line-height: 1.5;
         }
+
+
+        /* FORMAT-2 STYLING */
+        .format-2 {
+            display: flex;
+            flex-direction: row;    /* Align image and text side by side */
+        }
+        .format-2 .text {
+            width: 50%;             /* Text Container takes up 70% width of the section */
+            text-align: center;
+            padding: 50px;
+            display: flex;          /* Use flexbox */
+            flex-direction: column;
+            align-items: center;    /* Center vertically */
+            line-height: 1.5;
+        }
+        .format-2 .image {
+            width: 50%;             /* Image Container takes up 30% width of the section */
+            display: flex;          /* Use flexbox */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;        /* Center vertically */
+            padding: 50px;
+        }
+        .format-2 .image img {
+            width: 90%;            /* Image takes up full width of its container */
+            height: auto;
+            border-radius: 50px;
+        }
+        
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="home-button">
-            <img src="https://as2.ftcdn.net/v2/jpg/00/97/00/07/1000_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"title="Home"alt="Home">
-        </a>
-
-        <!-- The header is on the actual page as it is under <body> -->
-        <div class="banner-title">
-            <h1>Michael Calvert</h1>
-        </div>
-        
-        <div class="banner-links">
-            <nav>
+          <!-- Guide Bar Subsection -->
+        <div class="guide-bar">
+            <!-- Updated logo section as a single link -->
+            <a href="index.html" class="logo">Michael Calvert</a>
+            
+            <nav class="links">
                 <ul>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="adventures.html">Adventures</a></li>
                     <li><a href="fitness.html">Fitness</a></li>
+                    <li><a href="dev_test.html">DEV_TEST</a></li>
                 </ul>
             </nav>
         </div>
-        <h2>Adventures</h2>
     </header>
-    <p>This page functions as a collage of some of my favorite Adventures over the years! 
-    </p>
-  </body>
+
+    <h1>Adventures</h1>
+
+    <!-- Subsection 1-->
+    <div class="subsection-1">
+        <div class="format-1">
+            <div class="image">
+                <img src="images/me_lake_garda.jpg" alt="Me at Lake Garda, Italy"> <!-- Image on LHS: -->
+            </div>
+            <div class="text">
+                <h2>Add Subsection Heading!</h2>
+                <p>Add Text!</p> <!-- Description on RHS: -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Subsection 2-->
+    <section class="subsection-2">
+        <div class="format-2">
+            <div class="text">
+                <h2>Add Subsection Heading!</h2>
+                <p>Add Text!</p>
+            </div>
+            <div class="image">
+                <img src="images/aderondack_lawn.jpg" alt="Aderondack Chair">
+            </div>
+        </div>
+    </section>
+</body>
 </html>
