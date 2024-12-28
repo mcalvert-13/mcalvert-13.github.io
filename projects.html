@@ -33,28 +33,37 @@
             background-color: lightblue; /* Sets the background color of the guide bar */
             display: flex; /* Enables Flexbox layout for children: logo and links */
             align-items: center; /* Vertically centers the items in the guide bar */
-            padding: 10px 20px; /* Adds space inside the guide bar */
+            padding: 5px 25px; /* Adds space inside the guide bar */
         }
 
+        /* Logo Image */
+        .logo img {
+            width: 60px; /* Adjust the size of the image */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensures no extra space below the image */
+            border-radius: 5px; /* Adds slight rounding to link corners */
+            margin: 0 auto; /* Centers the image if necessary */
+            padding: 0; /* Ensures no extra padding around the image */
+            transition: transform 0.3s ease; /* Smooth scale effect if desired */
+        }
+
+        /* Logo Container */
         .guide-bar .logo {
-            font-size: 24px; /* Sets the size of the logo text */
-            font-weight: bold; /* Makes the text bold */
-            color: darkblue; /* Sets the link color */
-            text-decoration: none; /* Removes underline */
-            margin: 0; /* Removes default margin */
-            padding: 10px 15px; /* Adds padding to the link */
+            display: inline-block; /* Makes the container wrap around the image */
+            padding: 0px; /* Adds clickable padding around the image */
             border-radius: 5px; /* Adds slight rounding to link corners */
             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
         }
 
+        /* Hover Effect on Logo */
         .guide-bar .logo:hover {
-            background-color: darkblue; /* Changes background on hover */
-            color: white; /* Changes text color on hover */
+            background-color: darkblue; /* Highlights background on hover */
         }
 
-        .guide-bar .logo ul li a:hover {
-            background-color: darkblue; /* Changes background on hover */
-            color: white; /* Changes text color on hover */
+        /* Optional Hover Effect on Image */
+        .guide-bar .logo:hover img {
+            transform: scale(0.9); /* Slight zoom effect for the image on hover */
+            border-radius: 5px; /* Adds slight rounding to link corners */
         }
 
         .guide-bar .links {
@@ -162,21 +171,25 @@
 </head>
 <body>
     <header>
-          <!-- Guide Bar Subsection -->
-        <div class="guide-bar">
-            <!-- Updated logo section as a single link -->
-            <a href="index.html" class="logo">Michael Calvert</a>
-            
-            <nav class="links">
-                <ul>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="adventures.html">Adventures</a></li>
-                    <li><a href="fitness.html">Fitness</a></li>
-                    <li><a href="dev_test.html">DEV_TEST</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <!-- Guide Bar Subsection -->
+      <div class="guide-bar">
+          <!-- Updated logo section as a single link -->
+          <a href="index.html" class="logo">
+              <img src="images/mec.jpg" alt="Michael Calvert Logo" />
+          </a>
+          
+          <nav class="links">
+              <ul>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="adventures.html">Adventures</a></li>
+                  <li><a href="fitness.html">Fitness</a></li>
+                  <li><a href="dev_test.html">DEV_TEST</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+
 
     <h1>Projects</h1>
 
@@ -184,7 +197,7 @@
     <div class="cassette_holder">
         <div class="format-1">
             <div class="image">
-                <img src="images/Cassette_Holder.jpg" alt="Oak Cassette Holder"> <!-- Image on LHS: -->
+                <img src="images/projects/Cassette_Holder_Hung_Blur.jpg" alt="Oak Cassette Holder"> <!-- Image on LHS: -->
             </div>
             <div class="text">
                 <h2>Cassette Holder</h2>
@@ -201,7 +214,7 @@
                 <p>Add Text!</p>
             </div>
             <div class="image">
-                <img src="images/aderondack_lawn.jpg" alt="Aderondack Chair">
+                <img src="images/projects/aderondack_lawn.jpg" alt="Aderondack Chair">
             </div>
         </div>
     </section>

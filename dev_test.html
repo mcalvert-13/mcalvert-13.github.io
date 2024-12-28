@@ -12,8 +12,8 @@
             padding: 0;
         }
 
-        /* HEADER STYLING */
-        h1 {
+        
+        .title {
             font-size: 40px; /* Sets the size of the header */
             text-align: center; /* Centers the header text */
             margin-top: 50px; /* Removes default margin */ 
@@ -26,43 +26,52 @@
             text-align: center; /* Centers the header text */
             margin: 0; /* Removes default margin */
             padding-top: 20px; 
-            padding-bottom: 20px; /* Adds space below the header if needed */
+            padding-bottom: 0px; /* Adds space below the header if needed */
         }
 
-        /* GUIDE BAR STYLING */
-        .guide-bar {
+        /* HEADER STYLING */
+        header {
             background-color: lightblue; /* Sets the background color of the guide bar */
             display: flex; /* Enables Flexbox layout for children: logo and links */
             align-items: center; /* Vertically centers the items in the guide bar */
-            padding: 10px 20px; /* Adds space inside the guide bar */
+            padding: 5px 25px; /* Adds space inside the guide bar */
         }
 
-        .guide-bar .logo {
-            font-size: 24px; /* Sets the size of the logo text */
-            font-weight: bold; /* Makes the text bold */
-            color: darkblue; /* Sets the link color */
-            text-decoration: none; /* Removes underline */
-            margin: 0; /* Removes default margin */
-            padding: 10px 15px; /* Adds padding to the link */
+        /* Logo Image */
+        .logo img {
+            width: 60px; /* Adjust the size of the image */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensures no extra space below the image */
+            border-radius: 5px; /* Adds slight rounding to link corners */
+            margin: 0 auto; /* Centers the image if necessary */
+            padding: 0; /* Ensures no extra padding around the image */
+            transition: transform 0.3s ease; /* Smooth scale effect if desired */
+        }
+
+        /* Logo Container */
+        header .logo {
+            display: inline-block; /* Makes the container wrap around the image */
+            padding: 0px; /* Adds clickable padding around the image */
             border-radius: 5px; /* Adds slight rounding to link corners */
             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
         }
 
-        .guide-bar .logo:hover {
-            background-color: darkblue; /* Changes background on hover */
-            color: white; /* Changes text color on hover */
+        /* Hover Effect on Logo */
+        header .logo:hover {
+            background-color: darkblue; /* Highlights background on hover */
         }
 
-        .guide-bar .logo ul li a:hover {
-            background-color: darkblue; /* Changes background on hover */
-            color: white; /* Changes text color on hover */
+        /* Optional Hover Effect on Image */
+        header .logo:hover img {
+            transform: scale(0.9); /* Slight zoom effect for the image on hover */
+            border-radius: 5px; /* Adds slight rounding to link corners */
         }
 
-        .guide-bar .links {
+        header nav {
             margin-left: 20px; /* Adds space between the logo and the links */
         }
 
-        .guide-bar .links ul {
+        header nav ul {
             list-style: none; /* Removes default bullet points from the list */
             padding: 0; /* Removes extra padding from the list */
             margin: 0; /* Removes default margin from the list */
@@ -70,7 +79,7 @@
             gap: 10px; /* Adds spacing between each link */
         }
 
-        .guide-bar .links ul li a {
+        header nav ul li a {
             display: block; /* Makes each link behave like a block for padding to work */
             padding: 10px 15px; /* Adds padding inside each link */
             color: darkblue; /* Sets the link text color */
@@ -79,132 +88,169 @@
             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
         }
 
-        .guide-bar .links ul li a:hover {
+        header nav ul li a:hover {
             background-color: darkblue; /* Changes background on hover */
             color: white; /* Changes text color on hover */
         }
 
-
-        /* SUBSECTION STYLING */
-        .subsection-1 {
-            background-color: lightgray;
-            margin: 100px;
-            margin-top: 50px;
-            border-radius: 50px;
+        header nav ul li a.active {
+            background-color: darkblue; /* Keeps the background dark blue */
+            color: white; /* Keeps the text white */
         }
 
-        .subsection-2 {
-            background-color: rgb(138, 137, 137);
-            margin: 100px;
-            border-radius: 50px;
-        }
+        /* GALLERY STYLING */
 
-
-
-
-
-        /* FORMAT-1 STYLING */
-        .format-1 {
-            display: flex;
-            flex-direction: row;    /* Align image and text side by side */
-        }
-        .format-1 .image {
-            width: 50%;             /* Image Container takes up 30% width of the section */
-            display: flex;          /* Use flexbox */
-            justify-content: center;    /* Center horizontally */
-            align-items: center;        /* Center vertically */
-            padding: 20px;
-
-        }
-        .format-1 .image img {
-            width: 90%;            /* Image takes up full width of its container */
-            height: auto;
-            border-radius: 50px;
-        }
-        .format-1 .text {
-            width: 50%;             /* Text Container takes up 70% width of the section */
-            text-align: left;
-            padding: 50px;
-            display: flex;          /* Use flexbox */
-            flex-direction: column;
-            align-items: center;    /* Center vertically */
-            line-height: 1.5;
-        }
-
-
-        /* FORMAT-2 STYLING */
-        .format-2 {
-            display: flex;
-            flex-direction: row;    /* Align image and text side by side */
-        }
-        .format-2 .text {
-            width: 50%;             /* Text Container takes up 70% width of the section */
+        .gallery-links-h2 {
+            font-family: Catamaran;
+            font-size: 28px;
+            font-weight: 600;
+            color: #111;
+            text-transform: uppercase;
             text-align: center;
-            padding: 50px;
-            display: flex;          /* Use flexbox */
-            flex-direction: column;
-            align-items: center;    /* Center vertically */
-            line-height: 1.5;
+            padding: 20px;
         }
-        .format-2 .image {
-            width: 50%;             /* Image Container takes up 30% width of the section */
-            display: flex;          /* Use flexbox */
-            justify-content: center;    /* Center horizontally */
-            align-items: center;        /* Center vertically */
-            padding: 50px;
+
+        .gallery-links {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
         }
-        .format-2 .image img {
-            width: 90%;            /* Image takes up full width of its container */
-            height: auto;
-            border-radius: 50px;
+
+        .gallery-img {
+            flex-basis: 100%; /* Single item per row */
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1 / 1.5; /* Uniform square containers */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
         }
+
+        .gallery-img img,
+        .gallery-img video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures consistent scaling */
+        }
+
+
+        @media only screen and (min-width: 762px) {
+            .gallery-img {
+                flex-basis: 45%; /* Two items per row */
+                margin: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 1024px) {
+            .gallery-img {
+                flex-basis: 30%; /* Three items per row */
+                margin: 15px;
+            }
+        }
+
+        @media only screen and (min-width: 1440px) {
+            .gallery-img {
+                flex-basis: 20%; /* Five items per row */
+                margin: 20px;
+            }
+        }
+
+        
         
     </style>
 </head>
 <body>
     <header>
-          <!-- Guide Bar Subsection -->
-        <div class="guide-bar">
-            <!-- Updated logo section as a single link -->
-            <a href="index.html" class="logo">Michael Calvert</a>
-            
-            <nav class="links">
-                <ul>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="adventures.html">Adventures</a></li>
-                    <li><a href="fitness.html">Fitness</a></li>
-                    <li><a href="dev_test.html">DEV_TEST</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- Guide Bar Subsection -->
+        <a href="index.html" class="logo">
+            <img src="logos/mec.jpg" alt="Michael Calvert Logo" />
+        </a>
+          <nav>
+              <ul>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="adventures.html">Adventures</a></li>
+                  <li><a href="fitness.html">Fitness</a></li>
+                  <li><a href="about_me.html">About Me</a></li>
+                  <li><a href="dev_test.html">DEV_TEST</a></li>
+              </ul>
+          </nav>
+      </div>
     </header>
 
-    <h1>DEV_TEST</h1>
-
-    <!-- Subsection 1-->
-    <div class="subsection-1">
-        <div class="format-1">
-            <div class="image">
-                <img src="images/me_lake_garda.jpg" alt="Me at Lake Garda, Italy"> <!-- Image on LHS: -->
-            </div>
-            <div class="text">
-                <h2>Add Subsection Heading!</h2>
-                <p>Add Text!</p> <!-- Description on RHS: -->
-            </div>
-        </div>
+    <div class="wrapper">
+        <h2 class="gallery-links-h2">Project Gallery</h2>
     </div>
 
-    <!-- Subsection 2-->
-    <section class="subsection-2">
-        <div class="format-2">
-            <div class="text">
-                <h2>Add Subsection Heading!</h2>
-                <p>Add Text!</p>
-            </div>
-            <div class="image">
-                <img src="images/aderondack_lawn.jpg" alt="Aderondack Chair">
-            </div>
-        </div>
+    <section class="gallery-links">
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/aderondack_chair/refinished_lawn.jpg" alt="Aderondack Chair on Lawn">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/brewing/pto_bottle_and_glass.JPG" alt="Home Brewed Beer">
+        </a>
+        <a href="#" class="gallery-img">
+            <video autoplay loop muted playsinline>
+                <source src="Projects/zbt_room/finsihed_video.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+        <a href="#" class="gallery-img">
+            <img src="Projects/cassette_holder/hung_full_bkgr_blur.jpg" alt="Cassete Holder Hung Up">
+        </a>
+
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop(); // Extract just the filename
+            const navLinks = document.querySelectorAll('header nav ul li a');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+
+
+
 </body>
 </html>
