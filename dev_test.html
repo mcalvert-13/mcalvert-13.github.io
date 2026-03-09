@@ -12,15 +12,13 @@
             padding: 0;
         }
 
-        
         .title {
             font-size: 40px; /* Sets the size of the header */
             text-align: center; /* Centers the header text */
             margin-top: 50px; /* Removes default margin */ 
             margin-bottom: 50px; /* Adds space below the header if needed */
-
         }
-        
+
         h2 {
             font-size: 30px; /* Sets the size of the header */
             text-align: center; /* Centers the header text */
@@ -85,6 +83,7 @@
             color: darkblue; /* Sets the link text color */
             text-decoration: none; /* Removes the underline from the links */
             border-radius: 5px; /* Adds slight rounding to link corners */
+            white-space: nowrap; /* Prevents text from wrapping */
             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
         }
 
@@ -135,13 +134,74 @@
             object-fit: cover; /* Ensures consistent scaling */
         }
 
+                /* Default: Hide menu toggle and show nav links */
+        .menu-toggle {
+            display: none;
+        }
 
-        @media only screen and (min-width: 762px) {
-            .gallery-img {
-                flex-basis: 45%; /* Two items per row */
-                margin: 10px;
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Adjust layout for smaller screens */
+/* Adjust layout for smaller screens */
+/* Adjust layout for smaller screens */
+        @media only screen and (max-width: 761px) {
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                margin-left: auto;
+                position: relative; /* Helps with dropdown positioning */
+                z-index: 15;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px; /* Positions dropdown under the menu button */
+                right: 10px; /* Aligns dropdown closer to menu button */
+                background-color: lightblue;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 10;
+                padding: 10px;
+                min-width: 150px; /* Keeps dropdown from being too wide */
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: left;
+                padding: 5px 10px;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 8px;
+                white-space: nowrap;
             }
         }
+
+
+        @media only screen and (min-width: 762px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex !important; /* Always visible on larger screens */
+                position: static;
+                flex-direction: row;
+            }
+        }
+
 
         @media only screen and (min-width: 1024px) {
             .gallery-img {
@@ -157,27 +217,27 @@
             }
         }
 
-        
-        
     </style>
 </head>
 <body>
     <header>
-        <!-- Guide Bar Subsection -->
         <a href="index.html" class="logo">
-            <img src="logos/mec.jpg" alt="Michael Calvert Logo" />
+            <img src="logos/MEC.jpg" alt="Michael Calvert Logo" />
         </a>
-          <nav>
-              <ul>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="adventures.html">Adventures</a></li>
-                  <li><a href="fitness.html">Fitness</a></li>
-                  <li><a href="about_me.html">About Me</a></li>
-                  <li><a href="dev_test.html">DEV_TEST</a></li>
-              </ul>
-          </nav>
-      </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+            ☰
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="fitness.html">Fitness</a></li>
+                <li><a href="about_me.html">About Me</a></li>
+                <li><a href="dev_test.html">DEV_TEST</a></li>
+            </ul>
+        </nav>
     </header>
+    
 
     <div class="wrapper">
         <h2 class="gallery-links-h2">Project Gallery</h2>
@@ -191,7 +251,7 @@
             <img src="Projects/aderondack_chair/refinished_lawn.jpg" alt="Aderondack Chair on Lawn">
         </a>
         <a href="#" class="gallery-img">
-            <img src="Projects/brewing/pto_bottle_and_glass.JPG" alt="Home Brewed Beer">
+            <img src="Projects/brewing/pto_bottle_and_beer.JPG" alt="Home Brewed Beer">
         </a>
         <a href="#" class="gallery-img">
             <video autoplay loop muted playsinline>
@@ -237,20 +297,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const currentPath = window.location.pathname.split('/').pop(); // Extract just the filename
-            const navLinks = document.querySelectorAll('header nav ul li a');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentPath) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinkElements = document.querySelectorAll('.nav-links li a');
+
+            navLinkElements.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
                     link.classList.add('active');
                 }
             });
         });
-
     </script>
-
-
 
 </body>
 </html>
